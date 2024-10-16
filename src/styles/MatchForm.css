@@ -1,0 +1,113 @@
+.match-form-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.match-form-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #333;
+}
+
+.match-form-container form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.match-form-container form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.match-form-container label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.match-form-container input[type="text"],
+.match-form-container input[type="date"],
+.match-form-container input[type="number"] {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
+  width: 100%; 
+  height: 40px; 
+  box-sizing: border-box;
+}
+
+
+/* Styling for the native select dropdown */
+.match-form-container select {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+  height: 50px; 
+  box-sizing: border-box;
+  background-color: white;
+  cursor: pointer;
+}
+
+.match-form-container button {
+  padding: 15px;
+  background-color: #007bff;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.match-form-container button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.match-form-container form div.full-width {
+  grid-column: span 2;
+}
+
+.match-form-container select:focus {
+  border-color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .match-form-container form {
+    grid-template-columns: 1fr;
+    grid-gap: 15px;
+  }
+
+  .match-form-container button {
+    grid-column: span 1;
+  }
+
+  .match-form-container select {
+    font-size: 14px;
+  }
+
+  .match-form-container input[type="text"],
+.match-form-container input[type="date"],
+.match-form-container input[type="number"]{
+    font-size: 14px;
+  }
+
+  .match-form-container button {
+    padding: 12px;
+    font-size: 16px;
+  }
+}

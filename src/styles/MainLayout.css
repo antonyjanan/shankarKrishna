@@ -1,0 +1,17 @@
+    /* MainLayout.css */
+.main-layout-container {
+    display: flex;
+  }
+  
+  .main-layout-content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 250px;
+    transition: margin-left 0.3s ease;
+    padding-top: 60px; /* Adjust for navbar height */
+  }
+  
+  .main-layout-content.closed {
+    margin-left: 0;
+  }
+  

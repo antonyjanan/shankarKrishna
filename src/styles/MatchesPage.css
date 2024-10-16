@@ -1,0 +1,164 @@
+.main-containers {
+  background-color: #ddd;
+  padding: 5px; /* Reduced from 10px */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+  margin-bottom: 10px; 
+}
+
+.matches-container {
+  background-color: #ddd;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 15px; /* Reduced from 20px */
+  padding: 15px; /* Reduced from 20px */
+}
+
+.match-card {
+  padding: 15px; /* Reduced from 20px */
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fdfdfd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative; /* Added for absolute positioning of icons */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 95%; 
+}
+
+.match-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.match-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.match-card p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.edit-delete-icons {
+  position: absolute; /* Position icons absolutely */
+  bottom: 15px; /* Position from the bottom */
+  right: 15px; /* Position from the right */
+  display: flex; /* Flexbox for alignment */
+  gap: 10px; /* Space between icons */
+}
+
+button.edit-btn,
+button.delete-btn {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.edit-btn:hover,
+button.delete-btn:hover {
+  background-color: #eaeaea;
+  transform: scale(1.1);
+}
+
+button.edit-btn i,
+button.delete-btn i {
+  font-size: 18px;
+  color: #6c757d;
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #6c757d;
+  color: white;
+  border-radius: 12px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tab-nav {
+  margin: 15px 0; /* Reduced from 20px */
+  display: flex;
+  justify-content: center;
+  gap: 8px; /* Reduced from 10px */
+}
+
+.tab-nav button {
+  padding: 8px 16px; /* Adjusted padding */
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tab-nav button:hover {
+  background-color: #eaeaea;
+}
+
+.tab-nav .active-tab {
+  background-color: #4caf50;
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .matches-container {
+    grid-template-columns: 1fr; 
+  }
+
+  .button-container {
+    justify-content: center; 
+    margin-bottom: 15px; /* Adjusted margin */
+  }
+}
+
+@media (max-width: 600px) {
+  .match-card {
+    width: 100%;
+    padding: 10px; /* Reduced padding */
+  }
+
+  .match-card h3 {
+    font-size: 16px; /* Adjusted font size */
+  }
+
+  .match-card p {
+    font-size: 12px; /* Adjusted font size */
+  }
+
+  .badge {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+
+  .tab-nav button {
+    font-size: 14px;
+    padding: 6px 12px; /* Adjusted padding */
+  }
+}
