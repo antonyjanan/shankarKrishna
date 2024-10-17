@@ -6,16 +6,11 @@ import axios from "axios";
 
 const MatchesPage = () => {
   const Navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("upcoming");
   const [matches, setMatches] = useState([]);
 
   useEffect(() => {
     MatchList();
   }, []);
-
-  const today = new Date().toISOString().split("T")[0];
-  const upcomingMatches = matches.filter((match) => match?.m_date >= today);
-  const pastMatches = matches.filter((match) => match?.m_date < today);
 
   const handleDelete = (id) => {
     axios({
@@ -65,6 +60,11 @@ const MatchesPage = () => {
         console.log(err, "error");
       });
   };
+  function formatDate(inputDate) {
+    const date = new Date(inputDate);
+    const options = { day: "2-digit", month: "short", year: "numeric" };
+    return date.toLocaleDateString("en-GB", options);
+  }
   return (
     <div className="main-containers">
       <div
@@ -94,92 +94,40 @@ const MatchesPage = () => {
       </div>
 
       <div className="matches-container">
-        {activeTab === "upcoming" ? (
-          matches.length === 0 ? (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              <p>No upcoming matches available.</p>
-            </div>
-          ) : (
-            matches.map((match) => (
+        {matches.length === 0 ? (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <p>No List available.</p>
+          </div>
+        ) : (
+          matches.map((match) => (
+            <div className="match-card" key={match.cu_id}>
               <div
-                className="match-card"
-                key={match.cu_id}
-                // onClick={() => Navigate("/ProjectDetails")}
+                className="match-info"
+                onClick={() =>
+                  Navigate("/ProjectDetails", { state: match.cu_id })
+                }
               >
-                <div
-                  key={match.cu_id}
-                  onClick={() =>
-                    Navigate("/ProjectDetails", { state: match.cu_id })
-                  }
-                >
-                  <h3>{match.cu_name}</h3>
-                  <p>email: {match.cu_email}</p>
-                  <p>phone: {match.cu_mobile}</p>
-                  <p>Location: {match.cu_location}</p>
-                </div>
-                <div className="edit-delete-icons">
-                  {" "}
-                  {/* Added container for icons */}
-                  <Link to={`/matches/edit/${match.cu_id}`}>
-                    <button className="edit-btn">
-                      <i data-feather="edit-3">
-                        <Edit3 />
-                      </i>
-                    </button>
-                  </Link>
-                  <button
-                    className="delete-btn"
-                    onClick={() => handleDelete(match.cu_id)}
-                    data-bs-toggle="modal"
-                    data-original-title="test"
-                    data-bs-target="#deleteWarning"
-                  >
-                    <i data-feather="trash-2">
-                      <Trash2 />
-                    </i>
-                  </button>
+                <div className="match-details">
+                  <span>
+                    <h3>{match.cu_name}</h3>
+                  </span>
+                  <span>{formatDate(match.cu_date)} |</span>
+                  <span>{match.cu_mobile} |</span>
+                  <span>{match.cu_email} |</span>
+                  <span>{match.cu_location} |</span>
                 </div>
               </div>
-            ))
-          )
-        ) : pastMatches.length === 0 ? (
-          <p>No past matches available.</p>
-        ) : (
-          pastMatches.map((match) => (
-            <div
-              className="match-card"
-              key={match.cu_id}
-              onClick={() => Navigate("/ProjectDetails")}
-            >
-              <h3>{match.cu_name}</h3>
-              <p>email: {match.cu_email}</p>
-              <p>Location: {match.cu_location}</p>
-
               <div className="edit-delete-icons">
-                {" "}
-                {/* Added container for icons */}
-                <Link to={`/matches/edit/${match.m_id}`}>
+                <Link to={`/matches/edit/${match.cu_id}`}>
                   <button className="edit-btn">
-                    <i data-feather="edit-3">
-                      <Edit3 />
-                    </i>
+                    <Edit3 />
                   </button>
                 </Link>
                 <button
                   className="delete-btn"
-                  onClick={() => handleDelete(match.m_id)}
-                  data-bs-toggle="modal"
-                  data-original-title="test"
-                  data-bs-target="#deleteWarning"
+                  onClick={() => handleDelete(match.cu_id)}
                 >
-                  <i data-feather="trash-2">
-                    <Trash2 />
-                  </i>
+                  <Trash2 />
                 </button>
               </div>
             </div>
