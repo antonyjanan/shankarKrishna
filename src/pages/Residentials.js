@@ -4,7 +4,7 @@ import "../styles/MatchesPage.css";
 import { Edit3, Trash2 } from "react-feather";
 import axios from "axios";
 
-const MatchesPage = () => {
+const Residentials = () => {
   const Navigate = useNavigate();
   const [matches, setMatches] = useState([]);
 
@@ -42,6 +42,9 @@ const MatchesPage = () => {
     axios({
       url: "https://lunarsenterprises.com:6011/builderss/admin/contract/list",
       method: "POST",
+      data: {
+        cu_status: "Residentials",
+      },
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -71,7 +74,7 @@ const MatchesPage = () => {
         className="button-container"
         style={{ display: "flex", justifyContent: "space-between" }}
       >
-        <h1>Leads</h1>
+        <h1> Residentials Leads</h1>
         <Link to="/matches/create">
           <button
             style={{
@@ -138,4 +141,4 @@ const MatchesPage = () => {
   );
 };
 
-export default MatchesPage;
+export default Residentials;

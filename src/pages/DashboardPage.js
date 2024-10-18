@@ -3,7 +3,7 @@ import "../styles/DashboardPage.css";
 
 const DashboardPage = () => {
   const data = [
-    { title: "New Registration", count: 3, icon: "👥" },
+    { title: "New Registration", count: 3, icon: "👥", path: "/matches" },
     { title: "Approved Registration", count: 3, icon: "👥" },
     { title: "Cancelled Registration", count: 1, icon: "👥" },
     { title: "Total Registrations", count: 7, icon: "👥" },
@@ -41,7 +41,7 @@ const DashboardPage = () => {
           </div>
           <div className="card-body">
             <span className="count">{item.count}</span>
-            <a href="/dashboard" className="view-details">
+            <a href="/matches" className="view-details">
               View Detail
             </a>
           </div>

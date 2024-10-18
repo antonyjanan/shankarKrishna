@@ -11,6 +11,9 @@ import TeamsPage from "./pages/TeamsPage";
 import ForgotPassword from "./pages/ForgotPassword";
 import MatchForm from "./pages/MatchForm";
 import ProjectDetails from "./pages/ProjectDetails";
+import Renovation from "./pages/Renovation";
+import Residentials from "./pages/Residentials";
+import Commercial from "./pages/Commercial";
 
 const AppRoutes = () => {
   const { authenticated } = useAuth();
@@ -30,6 +33,9 @@ const AppRoutes = () => {
           <Route path="/players" element={<PlayersPage />} />
           <Route path="/teams" element={<TeamsPage />} />
           <Route path="/ProjectDetails" element={<ProjectDetails />} />
+          <Route path="/Renovation" element={<Renovation />} />
+          <Route path="/Residentials" element={<Residentials />} />
+          <Route path="/Commercial" element={<Commercial />} />
         </Route>
       )}
     </Routes>

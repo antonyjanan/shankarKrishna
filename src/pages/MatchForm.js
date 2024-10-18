@@ -21,6 +21,7 @@ const MatchForm = ({ matches, setMatches, history }) => {
   const [maxSqft, setMaxSqft] = useState("");
   const [numRooms, setNumRooms] = useState("");
   const [numStoreys, setNumStoreys] = useState("");
+  const [construction, setConstruction] = useState("");
   const [model, setModel] = useState("");
   const [foundation, setFoundation] = useState("");
   const [superstructure, setSuperstructure] = useState("");
@@ -173,6 +174,7 @@ const MatchForm = ({ matches, setMatches, history }) => {
         flooring_material_desc: match.flooringMaterialDesc,
         painting_material: match.paintingMaterial,
         painting_material_desc: match.paintingMaterialDesc,
+        contract_status: construction,
       };
 
       axios({
@@ -237,6 +239,18 @@ const MatchForm = ({ matches, setMatches, history }) => {
         </div>
 
         {/* Additional form fields */}
+        <div>
+          <label>Type of construction</label>
+          <select
+            value={construction}
+            onChange={(e) => setConstruction(e.target.value)}
+          >
+            <option value="">Select Type</option>
+            <option value="Renovation">Renovation</option>
+            <option value="Residentials">Residentials</option>
+            <option value="Commercial">Commercial</option>
+          </select>
+        </div>
         <div>
           <label>Plot Area (sqft):</label>
           <input

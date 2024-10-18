@@ -19,12 +19,15 @@ const Sidebar = ({ isOpen }) => {
       <Link to="/matches" className="sidebar-link">
         Leads
       </Link>
-      {/* <Link to="/players" className="sidebar-link">
-        Players
+      <Link to="/Residentials" className="sidebar-link">
+        Residentials
       </Link>
-      <Link to="/teams" className="sidebar-link">
-        Teams
-      </Link> */}
+      <Link to="/Renovation" className="sidebar-link">
+        Renovation
+      </Link>
+      <Link to="/Commercial" className="sidebar-link">
+        Commercial
+      </Link>
       <button className="logout-button" onClick={handleLogout}>
         Logout
       </button>
